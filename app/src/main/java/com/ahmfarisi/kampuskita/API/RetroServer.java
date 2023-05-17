@@ -14,6 +14,6 @@ public class RetroServer {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
-        return retro
+        return retro;
     }
 }
