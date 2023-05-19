@@ -1,5 +1,8 @@
 package com.ahmfarisi.kampuskita.Adapter;
 
+import android.content.Context;
+import android.view.ContentInfo;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,24 +10,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ahmfarisi.kampuskita.Model.ModelKampus;
 import com.ahmfarisi.kampuskita.R;
 
+import java.util.List;
+
 public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> {
+    private Context ctx;
+    private List<ModelKampus> listkampus;
+
+    public AdapterKampus(Context ctx, List<ModelKampus> listkampus) {
+        this.ctx = ctx;
+        this.listkampus = listkampus;
+    }
 
     @NonNull
     @Override
     public VHKampus onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View varView = LayoutInflater.from(ctx).inflate(R.layout.list_item_kampus, parent,false);
+        return new VHKampus(varView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull VHKampus holder, int position) {
-
+        ModelKampus MK = listkampus.get(position);
+        holder.tvId.setText(MK.getId());
+        holder.tvNama.setText(MK.getNama());
+        holder.tvKota.setText(MK.getKota());
+        holder.tvAlamat.setText(MK.getAlamat());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listkampus.size();
     }
 
     public class VHKampus extends RecyclerView.ViewHolder{
