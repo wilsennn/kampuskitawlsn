@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahmfarisi.kampuskita.R;
 
-public class AdapterKampus {
+public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> {
 
     public class VHKampus extends RecyclerView.ViewHolder{
         TextView tvId, tvNama, tvKota, tvAlamat;
