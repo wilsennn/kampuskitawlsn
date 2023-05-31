@@ -1,6 +1,7 @@
 package com.ahmfarisi.kampuskita.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahmfarisi.kampuskita.API.APIRequestData;
 import com.ahmfarisi.kampuskita.API.RetroServer;
+import com.ahmfarisi.kampuskita.Activity.UbahActivity;
 import com.ahmfarisi.kampuskita.Model.ModelKampus;
 import com.ahmfarisi.kampuskita.Model.ModelResponse;
 import com.ahmfarisi.kampuskita.R;
@@ -78,6 +80,12 @@ public class AdapterKampus extends RecyclerView.Adapter<AdapterKampus.VHKampus> 
             btnUbah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent pindah = new Intent(ctx, UbahActivity.class);
+                    pindah.putExtra("xId", tvId.getText().toString());
+                    pindah.putExtra("xNama", tvId.getText().toString());
+                    pindah.putExtra("xKota", tvId.getText().toString());
+                    pindah.putExtra("xAlamat", tvId.getText().toString());
+                    ctx.startActivity(pindah);
 
                 }
             });
